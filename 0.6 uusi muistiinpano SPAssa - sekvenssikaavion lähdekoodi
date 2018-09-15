@@ -1,0 +1,11 @@
+kayttaja->selain:
+note left of selain
+kayttaja kirjoittaa lomakkeen tekstikenttään muistiinpanon osoitteessa
+https://fullstack-exampleapp.herokuapp.com/soa ja klikkaa Talleta nappia
+end note
+selain->selain: uusi muistiinpano lisätään selaimeen
+note left of selain
+ selain lisää nyttää muokatun html koodin
+end note
+selain->palvelin: POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+palvelin->selain: status 201, muistiinpano lisätty palvelimelle

@@ -1,0 +1,34 @@
+kayttaja->selain:
+note left of selain
+kayttaja klikkaa linkkiä osoitteeseen
+https://fullstack-exampleapp.herokuapp.com/spa
+end note
+selain->palvelin: GET https://fullstack-exampleapp.herokuapp.com/spa
+note left of palvelin
+  haetaan staattinen HTML tiedosto
+  jossa on muut haettavat tiedostot
+end note
+palvelin->selain: status 200, sivun HTML-koodi
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.css
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/spa.js
+note left of palvelin
+  haetaan Javascript tiedosto
+  jossa koodi muistiinpanojen hakuun
+end note
+palvelin->selain: status 200, main.css
+palvelin->selain: status 200, spa.js
+note left of selain
+ selain näyttää palvelimen palauttaman HTML:n
+ tyyleillä koristeltuna  ja korvaa Talleta napin oletustoiminnon
+ SinglePageApp versiolla
+end note
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/data.json
+note left of palvelin
+  haetaan json muodossa lista muistiinpanoista
+end note
+palvelin->selain: status 200, data.json
+note left of selain
+ selain lisää HTML:ään Javascriptin avulla haetut
+ listamerkinnät
+end note
